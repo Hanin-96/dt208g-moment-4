@@ -1,12 +1,26 @@
+<h1>webbutveckling - Ramschema</h1>
+<div>
+    <label for="filter">Sök:</label>
+    <input type="text" id="filter" [(ngModel)]="filterValue" (input)="applyFilter()" placeholder="Sök efter kurskod eller kursnamn">
+</div>
+
+
 <table>
     <tr>
-      <th (click)="sort('code')">Kurskod</th>
-      <th (click)="sort('coursename')">Namn</th>
-      <th (click)="sort('progression')">Progression</th>
+        <th (click)="sort('code')">Kurskod</th>
+        <th (click)="sort('coursename')">Namn</th>
+        <th (click)="sort('progression')">Progression</th>
     </tr>
+
+    @if(sortedCourses.length ===0) {
+    <tr>
+        <td>Inga kurser hittades</td>
+    </tr>
+    }
+
     <tr *ngFor="let course of sortedCourses">
-      <td>{{course.code}}</td>
-      <td>{{course.coursename}}</td>
-      <td>{{course.progression}}</td>
+        <td>{{course.code}}</td>
+        <td>{{course.coursename}}</td>
+        <td>{{course.progression}}</td>
     </tr>
-  </table>
+</table>
