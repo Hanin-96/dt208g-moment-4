@@ -1,10 +1,10 @@
 <table>
     <tr>
-      <th>Kurskod</th>
-      <th>Namn</th>
-      <th>Progression</th>
+      <th (click)="sort('code')">Kurskod</th>
+      <th (click)="sort('coursename')">Namn</th>
+      <th (click)="sort('progression')">Progression</th>
     </tr>
-    <tr *ngFor="let course of courses">
+    <tr *ngFor="let course of sortedCourses">
       <td>{{course.code}}</td>
       <td>{{course.coursename}}</td>
       <td>{{course.progression}}</td>
